@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayush Tomar • Developer Portfolio</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <style>
+    :root{
+      --bg:#0b0d10; --card:#12161b; --muted:#9aa4b2; --text:#e8eef6; --primary:#76c7f2; --accent:#7cf29a; --border:#1e242c;
+    }
+    *{box-sizing:border-box}
+    html{scroll-behavior:smooth}
+    body{margin:0; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif; background:var(--bg); color:var(--text);}
+    a{color:inherit; text-decoration:none}
+    img{max-width:100%; display:block}
+    .container{max-width:1100px; margin:0 auto; padding:0 20px}
+    /* Navbar */
+    .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(8px); background:linear-gradient(180deg, rgba(11,13,16,0.85), rgba(11,13,16,0.6)); border-bottom:1px solid var(--border)}
+    .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
+    .brand{font-weight:800; letter-spacing:0.5px}
+    .brand span{color:var(--primary)}
+    .nav a{opacity:.9}
+    .nav-links{display:flex; gap:18px}
+    .btn{display:inline-flex; align-items:center; gap:8px; background:var(--primary); color:#061019; padding:10px 14px; border-radius:12px; font-weight:600; border:1px solid rgba(255,255,255,.06)}
+    .btn.ghost{background:transparent; color:var(--text); border-color:var(--border)}
+    .btn:hover{filter:brightness(1.05)}
+
+    /* Hero */
+    .hero{padding:72px 0 48px;}
+    .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center}
+    .title{font-size:40px; line-height:1.05; margin:0 0 10px; font-weight:800}
+    .subtitle{color:var(--muted); margin:0 0 24px}
+    .chip{display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:13px}
+    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin:22px 0}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px}
+
+    /* Sections */
+    section{padding:36px 0}
+    .section-title{font-size:24px; margin:0 0 14px; font-weight:800}
+    .grid{display:grid; gap:16px}
+    .grid-3{grid-template-columns:repeat(3, 1fr)}
+    .grid-2{grid-template-columns:repeat(2, 1fr)}
+    @media (max-width:900px){
+      .hero-grid{grid-template-columns:1fr}
+      .grid-3{grid-template-columns:1fr}
+      .grid-2{grid-template-columns:1fr}
+    }
+
+    /* Project cards */
+    .proj{display:flex; flex-direction:column; gap:10px}
+    .proj h3{margin:0; font-size:18px}
+    .proj p{margin:0; color:var(--muted)}
+    .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
+    .tag{font-size:12px; padding:6px 10px; border-radius:999px; background:#0f1318; border:1px solid var(--border); color:var(--muted)}
+    .proj .actions{margin-top:auto; display:flex; gap:10px}
+
+    /* Lists */
+    ul.clean{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+    ul.clean li{padding:12px 14px; border:1px solid var(--border); background:var(--card); border-radius:12px}
+
+    /* Footer */
+    footer{padding:22px 0 44px; color:var(--muted); text-align:center; border-top:1px solid var(--border)}
+  </style>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav class="nav">
+    <div class="container nav-inner">
+      <div class="brand">Ayush <span>Tomar</span></div>
+      <div class="nav-links">
+        <a href="#about">About</a>
+        <a href="#skills">Skills</a>
+        <a href="#projects">Projects</a>
+        <a href="#achievements">Achievements</a>
+        <a href="#education">Education</a>
+        <a href="#contact">Contact</a>
+        <a class="btn ghost" href="Ayush Tomar Resume.pdf" target="_blank" rel="noreferrer">Resume</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="container hero-grid">
+      <div>
+        <div class="chip">Software Engineer • Web Developer</div>
+        <h1 class="title">Building clean, fast web experiences.</h1>
+        <p class="subtitle">Frontend-focused developer with hands-on projects in music streaming UI, computer vision prototype, and portfolio design. Comfortable with HTML/CSS/JS, REST APIs, and modern tooling.</p>
+        <div class="badge-row">
+          <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">MongoDB</span>
+        </div>
+        <div class="badge-row">
+          <a class="btn" href="https://github.com/ayushtomarjnv1234" target="_blank" rel="noreferrer">GitHub</a>
+          <a class="btn ghost" href="#projects">View Projects</a>
+        </div>
+      </div>
+      <div class="card">
+        <h3 style="margin:0 0 8px;">Quick Facts</h3>
+        <ul class="clean">
+          <li>Strong focus on frontend (vanilla JS + HTML5 APIs)</li>
+          <li>Comfortable consuming REST APIs and handling JSON</li>
+          <li>Practice with Git/GitHub and clean repository structure</li>
+        </ul>
+      </div>
+    </div>
+  </header>
+
+  <!-- ABOUT -->
+  <section id="about">
+    <div class="container">
+      <h2 class="section-title">About Me</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <p style="margin:0; color:var(--muted)">Hi! I'm <strong>Ayush Tomar</strong>, a developer focused on building responsive, accessible web interfaces. I enjoy turning ideas into usable interfaces and wiring them to simple APIs. Recently I've worked on a music streaming UI, a drowsiness detection prototype, and this portfolio. I'm actively preparing for an SDE role and polishing my fundamentals.</p>
+        </div>
+        <div class="card">
+          <ul class="clean">
+            <li><strong>Location:</strong> India (open to remote)</li>
+            <li><strong>Interests:</strong> Web Dev, simple system design, problem solving</li>
+            <li><strong>Currently:</strong> Interview prep, refining projects, learning best practices</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills">
+    <div class="container">
+      <h2 class="section-title">Skills</h2>
+      <div class="grid grid-3">
+        <div class="card">
+          <h3>Frontend</h3>
+          <div class="tags" style="margin-top:10px">
+            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive UI</span><span class="tag">DOM</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Backend</h3>
+          <div class="tags" style="margin-top:10px">
+            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST APIs</span><span class="tag">Auth (basic)</span>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Database & Tools</h3>
+          <div class="tags" style="margin-top:10px">
+            <span class="tag">MongoDB</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <div class="container">
+      <h2 class="section-title">Projects</h2>
+      <div class="grid grid-3">
+        <article class="card proj">
+          <h3>Music Player Web App</h3>
+          <p>Frontend-focused music streaming UI with playlists and HTML5 Audio API controls.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Audio API</span>
+          </div>
+          <div class="actions">
+            <a class="btn" href="https://github.com/ayushtomarjnv1234/music-web-app" target="_blank" rel="noreferrer">Code</a>
+            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Live (add link)</a>
+          </div>
+        </article>
+        <article class="card proj">
+          <h3>Driver Drowsiness Detection</h3>
+          <p>Prototype exploring eye-blink/yawn cues (learning project; simple demo-level).</p>
+          <div class="tags">
+            <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Prototype</span>
+          </div>
+          <div class="actions">
+            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Code (add)</a>
+          </div>
+        </article>
+        <article class="card proj">
+          <h3>Developer Portfolio Website</h3>
+          <p>Responsive single-page site (this one) with sections for skills, projects, and contact.</p>
+          <div class="tags">
+            <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span>
+          </div>
+          <div class="actions">
+            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Live (after deploy)</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- ACHIEVEMENTS -->
+  <section id="achievements">
+    <div class="container">
+      <h2 class="section-title">Achievements</h2>
+      <ul class="clean">
+        <li>LeetCode practice — consistent problem solving (add profile link)</li>
+        <li>Academics & leadership highlights (customize from resume)</li>
+        <li>Sports/extra-curriculars (add short bullets)</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- EDUCATION -->
+  <section id="education">
+    <div class="container">
+      <h2 class="section-title">Education</h2>
+      <div class="grid grid-2">
+        <div class="card">
+          <h3 style="margin:0 0 6px">Degree / Program</h3>
+          <p style="margin:0; color:var(--muted)">Institute Name • YYYY–YYYY</p>
+          <p style="margin:10px 0 0; color:var(--muted)">Key coursework: DSA, DBMS, OS, CN (customize)</p>
+        </div>
+        <div class="card">
+          <h3 style="margin:0 0 6px">School / Prior</h3>
+          <p style="margin:0; color:var(--muted)">Institution • YYYY–YYYY</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CONTACT -->
+  <section id="contact">
+    <div class="container">
+      <h2 class="section-title">Contact</h2>
+      <div class="grid grid-3">
+        <a class="card" href="mailto:ayushtomarjnv1234@gmail.com"><strong>Email:</strong><br><span style="color:var(--muted)">youremail@example.com</span></a>
+        <a class="card" href="https://github.com/ayushtomarjnv1234" target="_blank" rel="noreferrer"><strong>GitHub:</strong><br><span style="color:var(--muted)">github.com/ayushtomarjnv1234</span></a>
+        <a class="card" href="https://www.linkedin.com/in/ayush-tomar-83384a153/" target="_blank" rel="noreferrer"><strong>LinkedIn:</strong><br><span style="color:var(--muted)">Add your profile link</span></a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Ayush Tomar · Built with HTML & CSS</div>
+  </footer>
+
+  <script>
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
