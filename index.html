@@ -17,6 +17,7 @@
     a{color:inherit; text-decoration:none}
     img{max-width:100%; display:block}
     .container{max-width:1100px; margin:0 auto; padding:0 20px}
+
     /* Navbar */
     .nav{position:sticky; top:0; z-index:50; backdrop-filter:saturate(150%) blur(8px); background:linear-gradient(180deg, rgba(11,13,16,0.85), rgba(11,13,16,0.6)); border-bottom:1px solid var(--border)}
     .nav-inner{display:flex; align-items:center; justify-content:space-between; height:64px}
@@ -29,28 +30,59 @@
     .btn:hover{filter:brightness(1.05)}
 
     /* Hero */
-    .hero{padding:72px 0 48px;}
-    .hero-grid{display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center}
+    .hero{padding:0 48px;}
+    .hero-grid{display:flex; flex-direction:column; gap:28px; align-items:center; text-align:center}
     .title{font-size:40px; line-height:1.05; margin:0 0 10px; font-weight:800}
     .subtitle{color:var(--muted); margin:0 0 24px}
     .chip{display:inline-block; padding:6px 10px; border:1px solid var(--border); border-radius:999px; color:var(--muted); font-size:13px}
-    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin:22px 0}
-    .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px}
+    .badge-row{display:flex; flex-wrap:wrap; gap:10px; margin:22px 0; justify-content:center}
+    .card{background:var(--card); border:1px solid var(--border); border-radius:18px; padding:18px; width:100%}
+
+    /* About section layout */
+.about-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;  /* two columns */
+  gap: 2rem;
+  align-items: start;
+  margin-top: 2rem;
+}
+
+/* Left side text */
+.about-left {
+  background: #1c1c1c;
+  padding: 1.5rem;
+  border-radius: 10px;
+}
+
+/* Right side cards */
+.about-right {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.about-card {
+  background: #1c1c1c;
+  padding: 1rem;
+  border-radius: 10px;
+}
 
     /* Sections */
-    section{padding:36px 0}
-    .section-title{font-size:24px; margin:0 0 14px; font-weight:800}
-    .grid{display:grid; gap:16px}
-    .grid-3{grid-template-columns:repeat(3, 1fr)}
-    .grid-2{grid-template-columns:repeat(2, 1fr)}
-    @media (max-width:900px){
-      .hero-grid{grid-template-columns:1fr}
-      .grid-3{grid-template-columns:1fr}
-      .grid-2{grid-template-columns:1fr}
+    section{padding:48px 0; display:flex; flex-direction:column; gap:32px; align-items:center}
+    .section-title{font-size:28px; margin:0; font-weight:800; text-align:center}
+
+    /* Grid fix: side by side layout */
+    .grid{
+      display:flex;
+      flex-direction:row;
+      gap:20px;
+      width:100%;
+      justify-content:center;
+      flex-wrap:wrap; /* responsive: wraps on smaller screens */
     }
 
     /* Project cards */
-    .proj{display:flex; flex-direction:column; gap:10px}
+    .proj{display:flex; flex-direction:column; gap:10px; width:300px; max-width:100%;}
     .proj h3{margin:0; font-size:18px}
     .proj p{margin:0; color:var(--muted)}
     .tags{display:flex; flex-wrap:wrap; gap:8px; margin-top:6px}
@@ -58,8 +90,25 @@
     .proj .actions{margin-top:auto; display:flex; gap:10px}
 
     /* Lists */
-    ul.clean{list-style:none; padding:0; margin:0; display:grid; gap:10px}
+    ul.clean{list-style:none; padding:0; margin:0; display:flex; flex-direction:column; gap:10px}
     ul.clean li{padding:12px 14px; border:1px solid var(--border); background:var(--card); border-radius:12px}
+
+    /* Skills container side by side */
+    .skills-container {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .skill-card {
+      background: #121417;
+      border-radius: 12px;
+      padding: 1.5rem;
+      width: 280px;
+      box-shadow: 0 6px 18px rgba(0,0,0,0.4);
+      text-align: center;
+    }
 
     /* Footer */
     footer{padding:22px 0 44px; color:var(--muted); text-align:center; border-top:1px solid var(--border)}
@@ -83,7 +132,15 @@
   </nav>
 
   <!-- HERO -->
-  <header class="hero">
+   <div>
+        <div style="display:flex; justify-content:center; align-items:center; margin-bottom:20px;">
+          <div style="width:240px; height:240px; border-radius:50%; border:4px solid var(--primary);
+                      overflow:hidden; box-shadow:0 6px 18px rgba(0,0,0,0.45);">
+            <img src="Ayush_Photo.png" alt="Ayush Tomar"
+                 style="width:100%; height:100%; object-fit:cover; object-position:80% 15%;">
+          </div>
+        </div>
+        <header class="hero">
     <div class="container hero-grid">
       <div>
         <div class="chip">Software Engineer • Web Developer</div>
@@ -97,59 +154,59 @@
           <a class="btn ghost" href="#projects">View Projects</a>
         </div>
       </div>
-      <div class="card">
-        <h3 style="margin:0 0 8px;">Quick Facts</h3>
-        <ul class="clean">
-          <li>Strong focus on frontend (vanilla JS + HTML5 APIs)</li>
-          <li>Comfortable consuming REST APIs and handling JSON</li>
-          <li>Practice with Git/GitHub and clean repository structure</li>
-        </ul>
-      </div>
     </div>
   </header>
-
-  <!-- ABOUT -->
-  <section id="about">
-    <div class="container">
-      <h2 class="section-title">About Me</h2>
-      <div class="grid grid-2">
-        <div class="card">
-          <p style="margin:0; color:var(--muted)">Hi! I'm <strong>Ayush Tomar</strong>, a developer focused on building responsive, accessible web interfaces. I enjoy turning ideas into usable interfaces and wiring them to simple APIs. Recently I've worked on a music streaming UI, a drowsiness detection prototype, and this portfolio. I'm actively preparing for an SDE role and polishing my fundamentals.</p>
-        </div>
-        <div class="card">
+        <div class="card" style="max-width:900px; margin:0 auto;">
+          <h3 style="margin:0 0 8px;">Quick Facts</h3>
           <ul class="clean">
-            <li><strong>Location:</strong> India (open to remote)</li>
-            <li><strong>Interests:</strong> Web Dev, simple system design, problem solving</li>
-            <li><strong>Currently:</strong> Interview prep, refining projects, learning best practices</li>
+            <li>Strong focus on frontend (vanilla JS + HTML5 APIs)</li>
+            <li>Comfortable consuming REST APIs and handling JSON</li>
+            <li>Practice with Git/GitHub and clean repository structure</li>
           </ul>
         </div>
       </div>
+  
+
+ <section id="about">
+  <h2>About Me</h2>
+  <div class="about-container">
+    
+    <!-- LEFT SIDE -->
+    <div class="about-left">
+      <p>
+        Hi! I'm <strong>Ayush Tomar</strong>, a developer focused on building responsive, accessible web interfaces. 
+        I enjoy turning ideas into usable interfaces and wiring them to simple APIs. Recently I've worked on a 
+        music streaming UI, a drowsiness detection prototype, and this portfolio. I'm actively preparing for 
+        an SDE role and polishing my fundamentals.
+      </p>
     </div>
-  </section>
+
+    <!-- RIGHT SIDE -->
+    <div class="about-right">
+      <div class="about-card"><strong>Location:</strong> India (open to remote)</div>
+      <div class="about-card"><strong>Interests:</strong> Web Dev, simple system design, problem solving</div>
+      <div class="about-card"><strong>Currently:</strong> Interview prep, refining projects, learning best practices</div>
+    </div>
+
+  </div>
+</section>
+
 
   <!-- SKILLS -->
-  <section id="skills">
-    <div class="container">
-      <h2 class="section-title">Skills</h2>
-      <div class="grid grid-3">
-        <div class="card">
-          <h3>Frontend</h3>
-          <div class="tags" style="margin-top:10px">
-            <span class="tag">HTML5</span><span class="tag">CSS3</span><span class="tag">JavaScript</span><span class="tag">Responsive UI</span><span class="tag">DOM</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Backend</h3>
-          <div class="tags" style="margin-top:10px">
-            <span class="tag">Node.js</span><span class="tag">Express</span><span class="tag">REST APIs</span><span class="tag">Auth (basic)</span>
-          </div>
-        </div>
-        <div class="card">
-          <h3>Database & Tools</h3>
-          <div class="tags" style="margin-top:10px">
-            <span class="tag">MongoDB</span><span class="tag">Git</span><span class="tag">GitHub</span><span class="tag">Postman</span>
-          </div>
-        </div>
+  <section id="skills" class="section">
+    <h2 class="section-title">Skills</h2>
+    <div class="skills-container">
+      <div class="skill-card">
+        <h3>Frontend</h3>
+        <p>HTML5 CSS3 JavaScript Responsive UI DOM</p>
+      </div>
+      <div class="skill-card">
+        <h3>Backend</h3>
+        <p>Node.js Express REST APIs Auth (basic)</p>
+      </div>
+      <div class="skill-card">
+        <h3>Database & Tools</h3>
+        <p>MongoDB Git GitHub Postman</p>
       </div>
     </div>
   </section>
@@ -158,16 +215,12 @@
   <section id="projects">
     <div class="container">
       <h2 class="section-title">Projects</h2>
-      <div class="grid grid-3">
+      <div class="grid">
         <article class="card proj">
           <h3>Music Player Web App</h3>
           <p>Frontend-focused music streaming UI with playlists and HTML5 Audio API controls.</p>
           <div class="tags">
             <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">JavaScript</span><span class="tag">Audio API</span>
-          </div>
-          <div class="actions">
-            <a class="btn" href="https://github.com/ayushtomarjnv1234/music-web-app" target="_blank" rel="noreferrer">Code</a>
-            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Live (add link)</a>
           </div>
         </article>
         <article class="card proj">
@@ -176,18 +229,12 @@
           <div class="tags">
             <span class="tag">Python</span><span class="tag">OpenCV</span><span class="tag">Prototype</span>
           </div>
-          <div class="actions">
-            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Code (add)</a>
-          </div>
         </article>
         <article class="card proj">
           <h3>Developer Portfolio Website</h3>
           <p>Responsive single-page site (this one) with sections for skills, projects, and contact.</p>
           <div class="tags">
             <span class="tag">HTML</span><span class="tag">CSS</span><span class="tag">Responsive</span>
-          </div>
-          <div class="actions">
-            <a class="btn ghost" href="#" target="_blank" rel="noreferrer">Live (after deploy)</a>
           </div>
         </article>
       </div>
@@ -199,9 +246,25 @@
     <div class="container">
       <h2 class="section-title">Achievements</h2>
       <ul class="clean">
-        <li>LeetCode practice — consistent problem solving (add profile link)</li>
-        <li>Academics & leadership highlights (customize from resume)</li>
-        <li>Sports/extra-curriculars (add short bullets)</li>
+        <li>
+          <strong>LeetCode:</strong> Solved 450+ DSA problems, maintaining top percentile ranks. 
+          <a href="https://leetcode.com/u/AyushTomar29/" target="_blank" rel="noreferrer" style="color:var(--primary)">View Profile</a>
+        </li>
+        <li>
+          <strong>Academic Achievements:</strong>
+          <ul style="margin-top:6px; list-style:disc; margin-left:20px; color:var(--muted)">
+            <li>Selected for the prestigious <em>Super 30 JEE</em> program (merit-based national initiative).</li>
+            <li>Secured selection in the <em>Indian Air Force Technical Branch (2020)</em> through national-level testing.</li>
+            <li>Ranked in top 5 of class in Class X (CGPA: 9.2) and Class XII (85.2%) at JNV.</li>
+          </ul>
+        </li>
+        <li>
+          <strong>Leadership:</strong> Sports President, NSUT (2024–25) — organized college tournaments with 500+ participants. 
+          House Captain, JNV (2019–20) — led house to 1st rank overall.
+        </li>
+        <li>
+          <strong>Extra-curricular:</strong> 2nd position in intra-college Hackathon (2023), showcased music streaming app at NSUT Project Expo (2025).
+        </li>
       </ul>
     </div>
   </section>
@@ -210,15 +273,15 @@
   <section id="education">
     <div class="container">
       <h2 class="section-title">Education</h2>
-      <div class="grid grid-2">
+      <div class="grid">
         <div class="card">
-          <h3 style="margin:0 0 6px">Degree / Program</h3>
-          <p style="margin:0; color:var(--muted)">Institute Name • YYYY–YYYY</p>
-          <p style="margin:10px 0 0; color:var(--muted)">Key coursework: DSA, DBMS, OS, CN (customize)</p>
+          <h3 style="margin:0 0 6px"> Bachelor of Technology / Electronics and Communication </h3>
+          <p style="margin:0; color:var(--muted)">NSUT DELHI • 2026</p>
+          <p style="margin:10px 0 0; color:var(--muted)">Key coursework: DSA, DBMS, OS, CN</p>
         </div>
         <div class="card">
-          <h3 style="margin:0 0 6px">School / Prior</h3>
-          <p style="margin:0; color:var(--muted)">Institution • YYYY–YYYY</p>
+          <h3 style="margin:0 0 6px">12th / 10th</h3>
+          <p style="margin:0; color:var(--muted)">Jawahar Navodaya Vidyalya • 2016-2018</p>
         </div>
       </div>
     </div>
@@ -228,10 +291,10 @@
   <section id="contact">
     <div class="container">
       <h2 class="section-title">Contact</h2>
-      <div class="grid grid-3">
-        <a class="card" href="mailto:ayushtomarjnv1234@gmail.com"><strong>Email:</strong><br><span style="color:var(--muted)">youremail@example.com</span></a>
+      <div class="grid">
+        <a class="card" href="mailto:ayushtomarjnv1234@gmail.com"><strong>Email:</strong><br><span style="color:var(--muted)">ayushtomarjnv1234@gmail.com</span></a>
         <a class="card" href="https://github.com/ayushtomarjnv1234" target="_blank" rel="noreferrer"><strong>GitHub:</strong><br><span style="color:var(--muted)">github.com/ayushtomarjnv1234</span></a>
-        <a class="card" href="https://www.linkedin.com/in/ayush-tomar-83384a153/" target="_blank" rel="noreferrer"><strong>LinkedIn:</strong><br><span style="color:var(--muted)">Add your profile link</span></a>
+        <a class="card" href="https://www.linkedin.com/in/ayush-tomar-83384a153/" target="_blank" rel="noreferrer"><strong>LinkedIn:</strong><br><span style="color:var(--muted)">Ayush Tomar</span></a>
       </div>
     </div>
   </section>
